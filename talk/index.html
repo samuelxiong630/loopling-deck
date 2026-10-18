@@ -221,17 +221,17 @@ body.no-zh .zh { display: none; }
 @media (min-width: 640px) { .cuts { gap: 3px; } }
 
 /* the silence, drawn to time: four breakers, true black, three lamps, the line, the logo, then you */
-.score { margin-top: 10px; max-width: 560px; }
+.score { --span: 8; margin-top: 10px; max-width: 560px; } /* --span: the seconds the track spans */
 .track { position: relative; height: 34px; }
 .track::after { /* the floor: one tick per second */
   content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px;
   border-bottom: 1px solid var(--edge-2);
-  background: repeating-linear-gradient(90deg, var(--ink-4) 0 1px, transparent 1px calc(100% / 9.5)) left bottom / 100% 4px no-repeat;
+  background: repeating-linear-gradient(90deg, var(--ink-4) 0 1px, transparent 1px calc(100% / var(--span))) left bottom / 100% 4px no-repeat;
 }
 .track svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.t { position: absolute; left: calc(var(--t) / 9.5 * 100%); }
+.t { position: absolute; left: calc(var(--t) / var(--span) * 100%); }
 .lamp { top: 46%; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%; background: var(--lamp); box-shadow: 0 0 5px 1px rgba(255, 196, 120, 0.55), 0 0 14px 3px rgba(255, 180, 100, 0.16); }
-.ln { top: 46%; height: 2px; margin-top: -1px; width: calc(1.75 / 9.5 * 100%); border-radius: 1px; background: linear-gradient(90deg, rgba(245, 245, 247, 0.08), rgba(245, 245, 247, 0.85)); }
+.ln { top: 46%; height: 2px; margin-top: -1px; width: calc(var(--w) / var(--span) * 100%); border-radius: 1px; background: linear-gradient(90deg, rgba(245, 245, 247, 0.08), rgba(245, 245, 247, 0.85)); }
 .lg { top: 46%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 3px; background: var(--mark) center / 100% 100% no-repeat; }
 .go { top: 2px; bottom: 0; width: 2px; margin-left: -1px; border-radius: 1px; background: var(--lime); }
 
@@ -323,21 +323,21 @@ body.no-zh .zh { display: none; }
     <li class="beat has-shot">
       <div class="trig"><span class="key" aria-label="Press right arrow again">→</span></div>
       <div class="head">
-        <p class="cue-h">Silence<span class="dur">9 s</span></p>
+        <p class="cue-h">Silence<span class="dur">7.5 s</span></p>
       </div>
       <div class="script">
-        <div class="score" role="img" aria-label="Nine seconds of silence: the lights die by 2.4 s, three lamps strike at 2.9, 4.0 and 5.1 s, the line appears by 7.6 s, the logo lands at 9 s, then you speak.">
+        <div class="score" role="img" aria-label="About seven and a half seconds of silence: the lights die by 1.9 s, three lamps strike at 2.3, 3.2 and 4.0 s, the line develops from 4.7 s, the lockup lands at 6.5 s, then you speak at about 7.4 s.">
           <div class="track" aria-hidden="true">
-            <svg viewBox="0 0 950 34" preserveAspectRatio="none" focusable="false">
+            <svg viewBox="0 0 800 34" preserveAspectRatio="none" focusable="false">
               <defs><linearGradient id="room" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc98a" stop-opacity="0.6"/><stop offset="1" stop-color="#ffc98a" stop-opacity="0.04"/></linearGradient></defs>
-              <path d="M0 34V3H50V11H96V18.5H130V26H154L235 34Z" fill="url(#room)"/>
+              <path d="M0 34V3H40V11H77V18.5H104V26H123L188 34Z" fill="url(#room)"/>
             </svg>
-            <i class="t lamp" style="--t: 2.9"></i>
-            <i class="t lamp" style="--t: 3.95"></i>
-            <i class="t lamp" style="--t: 5.05"></i>
-            <i class="t ln" style="--t: 5.85"></i>
-            <i class="t lg" style="--t: 8.6"></i>
-            <i class="t go" style="--t: 9.05"></i>
+            <i class="t lamp" style="--t: 2.32"></i>
+            <i class="t lamp" style="--t: 3.16"></i>
+            <i class="t lamp" style="--t: 4.04"></i>
+            <i class="t ln" style="--t: 4.68; --w: 1.52"></i>
+            <i class="t lg" style="--t: 6.52"></i>
+            <i class="t go" style="--t: 7.42"></i>
           </div>
         </div>
       </div>
